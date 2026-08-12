@@ -1,0 +1,58 @@
+name: inspect tilda source
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fetch source
+        run: |
+          python - <<'PY'
+          import requests, re
+          from bs4 import BeautifulSoup
+          url='https://netsoundcollective.com.tilda.ws/'
+          r=requests.get(url, timeout=30, headers={'User-Agent':'Mozilla/5.0'})
+          print('STATUS', r.status_code)
+          print('FINAL_URL', r.url)
+          print('CONTENT_TYPE', r.headers.get('content-type'))
+          html=r.text
+          print('HTML_LENGTH', len(html))
+          soup=BeautifulSoup(html,'html.parser')
+          print('\n--- META ---')
+          for tag in soup.find_all('meta'):
+              key=tag.get('property') or tag.get('name')
+              val=tag.get('content')
+              if key and val and any(x in key.lower() for x in ['title','description','og:','twitter:']):
+                  print(f'{key}: {val}')
+          print('\n--- TITLE ---')
+          print(soup.title.get_text(' ',strip=True) if soup.title else '')
+          print('\n--- VISIBLE TEXT ---')
+          for s in soup(['script','style','noscript']):
+              s.decompose()
+          text='\n'.join(x.strip() for x in soup.stripped_strings if x.strip())
+          print(text[:24000])
+          print('\n--- IMAGES ---')
+          soup2=BeautifulSoup(html,'html.parser')
+          seen=[]
+          for img in soup2.find_all('img'):
+              src=img.get('data-original') or img.get('data-src') or img.get('src')
+              if src and src not in seen:
+                  seen.append(src)
+                  print(src)
+              if len(seen)>=60: break
+          print('\n--- INLINE COLORS/FONTS ---')
+          css='\n'.join(x.get_text() for x in soup2.find_all('style'))
+          for pat in [r'#[0-9a-fA-F]{6}', r'font-family:[^;}{]+', r'background-color:[^;}{]+', r'color:[^;}{]+']:
+              vals=[]
+              for m in re.findall(pat, css):
+                  m=m.strip()
+                  if m not in vals: vals.append(m)
+              print(pat, vals[:80])
+          PY
