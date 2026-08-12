@@ -16,10 +16,11 @@ jobs:
         run: |
           python -m pip install --quiet requests beautifulsoup4
           python - <<'PY'
-          import requests, re
+          import requests, re, urllib3
           from bs4 import BeautifulSoup
+          urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
           url='https://netsoundcollective.com.tilda.ws/'
-          r=requests.get(url, timeout=30, headers={'User-Agent':'Mozilla/5.0'})
+          r=requests.get(url, timeout=30, verify=False, headers={'User-Agent':'Mozilla/5.0'})
           print('STATUS', r.status_code)
           print('FINAL_URL', r.url)
           print('CONTENT_TYPE', r.headers.get('content-type'))
@@ -48,6 +49,15 @@ jobs:
                   seen.append(src)
                   print(src)
               if len(seen)>=60: break
+          print('\n--- LINKS ---')
+          seen=[]
+          for a in soup2.find_all('a'):
+              href=a.get('href')
+              label=' '.join(a.stripped_strings)
+              if href and href not in seen:
+                  seen.append(href)
+                  print(f'{label[:120]} -> {href}')
+              if len(seen)>=100: break
           print('\n--- INLINE COLORS/FONTS ---')
           css='\n'.join(x.get_text() for x in soup2.find_all('style'))
           for pat in [r'#[0-9a-fA-F]{6}', r'font-family:[^;}{]+', r'background-color:[^;}{]+', r'color:[^;}{]+']:
