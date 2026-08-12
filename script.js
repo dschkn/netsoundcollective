@@ -17,9 +17,9 @@
           observer.unobserve(entry.target);
         }
       });
-    }, { threshold: 0.12, rootMargin: '0px 0px -5% 0px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -4% 0px' });
     reveals.forEach((el, i) => {
-      el.style.transitionDelay = `${Math.min(i % 4, 3) * 65}ms`;
+      el.style.transitionDelay = `${Math.min(i % 4, 3) * 55}ms`;
       observer.observe(el);
     });
   } else {
@@ -37,12 +37,9 @@
 
   if (!canvas || prefersReduced) return;
   const ctx = canvas.getContext('2d');
-  let w = 0;
-  let h = 0;
-  let dpr = 1;
+  let w = 0, h = 0, dpr = 1, raf;
   let pointer = { x: -1000, y: -1000 };
   let nodes = [];
-  let raf;
 
   const makeNodes = () => {
     const count = Math.max(18, Math.min(42, Math.floor(w / 45)));
@@ -58,8 +55,7 @@
 
   const resize = () => {
     const rect = canvas.getBoundingClientRect();
-    w = rect.width;
-    h = rect.height;
+    w = rect.width; h = rect.height;
     dpr = Math.min(window.devicePixelRatio || 1, 2);
     canvas.width = Math.floor(w * dpr);
     canvas.height = Math.floor(h * dpr);
@@ -69,50 +65,37 @@
 
   const draw = () => {
     ctx.clearRect(0, 0, w, h);
-
     for (const n of nodes) {
-      n.x += n.vx;
-      n.y += n.vy;
+      n.x += n.vx; n.y += n.vy;
       if (n.x < -20) n.x = w + 20;
       if (n.x > w + 20) n.x = -20;
       if (n.y < -20) n.y = h + 20;
       if (n.y > h + 20) n.y = -20;
-
-      const pdx = n.x - pointer.x;
-      const pdy = n.y - pointer.y;
+      const pdx = n.x - pointer.x, pdy = n.y - pointer.y;
       const pDist = Math.hypot(pdx, pdy);
       if (pDist < 140 && pDist > 0) {
         n.x += (pdx / pDist) * .35;
         n.y += (pdy / pDist) * .35;
       }
     }
-
     for (let i = 0; i < nodes.length; i++) {
       for (let j = i + 1; j < nodes.length; j++) {
-        const a = nodes[i];
-        const b = nodes[j];
-        const dx = a.x - b.x;
-        const dy = a.y - b.y;
+        const a = nodes[i], b = nodes[j];
+        const dx = a.x - b.x, dy = a.y - b.y;
         const dist = Math.hypot(dx, dy);
         if (dist < 165) {
           const alpha = (1 - dist / 165) * .24;
           ctx.strokeStyle = `rgba(240,239,232,${alpha})`;
           ctx.lineWidth = .7;
-          ctx.beginPath();
-          ctx.moveTo(a.x, a.y);
-          ctx.lineTo(b.x, b.y);
-          ctx.stroke();
+          ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.stroke();
         }
       }
     }
-
     for (const n of nodes) {
-      ctx.beginPath();
-      ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+      ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
       ctx.fillStyle = n.signal ? 'rgba(199,255,26,.9)' : 'rgba(240,239,232,.55)';
       ctx.fill();
     }
-
     raf = requestAnimationFrame(draw);
   };
 

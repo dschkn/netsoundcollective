@@ -1,12 +1,14 @@
-# NetSound Collective — website
+# NetSound Collective website
 
-Standalone static website prototype for NetSound Collective.
+Standalone bilingual website for NetSound Collective.
 
-## Structure
+- English: `index.html`
+- Deutsch: `de.html`
+- Branch: `website`
+- Static HTML / CSS / JavaScript
+- No build step and no external runtime dependencies
+- Images are optimized WebP assets; the high-contrast monochrome treatment is applied in CSS and returns to colour on hover.
 
-- `index.html` — page content
-- `styles.css` — responsive visual system
-- `script.js` — network canvas, latency readout, reveal interactions
-- `.github/workflows/pages.yml` — GitHub Pages preview deployment from `website`
+## Preview
 
-The site intentionally uses no framework and no external font or image dependency.
+The `website` branch is configured for a GitHub Pages workflow. Until Pages is enabled in repository settings, the branch can be previewed through a static GitHub renderer such as raw.githack.com.
