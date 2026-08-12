@@ -1,6 +1,12 @@
-# netsoundcollective
+# NetSound Collective — website
 
-Website source for Net Sound Collective.
+Standalone static website prototype for NetSound Collective.
 
-- `main` — project root / stable baseline
-- `website` — redesigned standalone website
+## Structure
+
+- `index.html` — page content
+- `styles.css` — responsive visual system
+- `script.js` — network canvas, latency readout, reveal interactions
+- `.github/workflows/pages.yml` — GitHub Pages preview deployment from `website`
+
+The site intentionally uses no framework and no external font or image dependency.
