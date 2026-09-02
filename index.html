@@ -3,8 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#090909" />
-  <meta name="description" content="NetSound Collective — a Düsseldorf-based ensemble, platform and forum for interdisciplinary experimental projects across music, philosophy, electronics and AI." />
+  <meta name="theme-color" content="#0a0a0a" />
+  <meta name="color-scheme" content="dark" />
+  <meta name="description" content="NetSound Collective is a Düsseldorf-based laptop ensemble and platform for networked performance, live electronics and transdigital practice." />
+  <meta property="og:title" content="NetSound Collective" />
+  <meta property="og:description" content="Networked performance, live electronics and transdigital practice." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="NetSound Collective" />
   <link rel="alternate" hreflang="en" href="./index.html" />
   <link rel="alternate" hreflang="de" href="./de.html" />
   <title>NetSound Collective</title>
@@ -12,96 +17,256 @@
 </head>
 <body>
   <a class="skip-link" href="#main">skip to content</a>
+  <div class="scroll-progress" aria-hidden="true"><span data-progress></span></div>
 
   <header class="site-header" data-header>
-    <a class="wordmark" href="#top" aria-label="NetSound Collective"><span>NETSOUND</span></a>
-    <nav class="nav" aria-label="Primary navigation">
-      <a href="#about">about</a><a href="#practice">practice</a><a href="#archive">archive</a><a href="#artists">artists</a><a href="#call">call</a><a href="#contact">contact</a>
+    <a class="wordmark" href="#top" aria-label="NetSound Collective home">
+      <span class="wordmark-mark" aria-hidden="true">N/S</span>
+      <span>NetSound Collective</span>
+    </a>
+
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-toggle>
+      <span>menu</span><i></i><i></i>
+    </button>
+
+    <nav class="nav" id="site-nav" aria-label="Primary navigation" data-nav>
+      <a href="#about">about</a>
+      <a href="#practice">practice</a>
+      <a href="#archive">archive</a>
+      <a href="#artists">artists</a>
+      <a href="#call">call</a>
+      <a href="#contact">contact</a>
     </nav>
+
     <div class="header-tools">
       <div class="language-switch" aria-label="Language"><span class="active">EN</span><span>/</span><a href="./de.html">DE</a></div>
-      <div class="status" aria-label="network active"><span class="status-dot"></span><span>network active</span></div>
+      <span class="header-location">Düsseldorf · distributed</span>
     </div>
   </header>
 
   <main id="main">
     <section class="hero" id="top" aria-labelledby="hero-title">
-      <div class="hero-grid"></div><div class="hero-orbit orbit-a" aria-hidden="true"></div><div class="hero-orbit orbit-b" aria-hidden="true"></div><div class="hero-orbit orbit-c" aria-hidden="true"></div>
-      <div class="hero-kicker reveal" data-reveal="fade"><span>ensemble / platform / forum</span><span>since 2023 · Düsseldorf ↔ network</span></div>
-      <h1 id="hero-title" class="hero-title reveal" data-reveal="up"><span>NETSOUND</span><span>COLLECTIVE</span></h1>
-      <div class="hero-bottom reveal" data-reveal="up">
-        <p class="hero-intro">An ensemble, platform and forum for interdisciplinary experimental projects at the intersection of music, philosophy, electronics and emerging AI.</p>
-        <a class="scroll-link" href="#about">enter the network <span>↓</span></a>
+      <div class="hero-noise" aria-hidden="true"></div>
+      <div class="hero-topline reveal" data-reveal>
+        <span>laptop ensemble / platform / forum</span>
+        <span>est. 2023</span>
       </div>
-      <div class="hero-patch reveal" data-reveal="up" aria-hidden="true"><span class="patch-box">router @ports 5</span><span class="patch-cord"></span><span class="patch-box active">matrix~ 4 4</span><span class="patch-cord short"></span><span class="patch-box">live.gain~</span></div>
-      <div class="latency-readout" aria-hidden="true"><span data-latency>028</span><small>ms</small></div>
+
+      <div class="hero-stage">
+        <div class="hero-copy reveal" data-reveal>
+          <p class="eyebrow">networked music · live electronics · transdigital practice</p>
+          <h1 id="hero-title"><span>NET</span><span>SOUND</span></h1>
+          <p class="hero-intro">A collective for experimental work where performers, computers, rooms and networks become one instrument.</p>
+        </div>
+
+        <div class="topology reveal" data-reveal aria-hidden="true">
+          <svg viewBox="0 0 620 620" role="presentation">
+            <g class="topology-grid">
+              <path d="M60 155H560M60 310H560M60 465H560" />
+              <path d="M155 60V560M310 60V560M465 60V560" />
+            </g>
+            <g class="topology-links">
+              <path d="M112 160L310 310L506 152" />
+              <path d="M310 310L489 460L160 478Z" />
+              <path d="M112 160L160 478" />
+              <path d="M506 152L489 460" />
+            </g>
+            <g class="topology-nodes">
+              <circle cx="112" cy="160" r="9" />
+              <circle cx="506" cy="152" r="9" />
+              <circle cx="310" cy="310" r="13" class="node-core" />
+              <circle cx="160" cy="478" r="9" />
+              <circle cx="489" cy="460" r="9" />
+            </g>
+            <g class="topology-packets">
+              <circle r="4"><animateMotion dur="4.8s" repeatCount="indefinite" path="M112 160L310 310L506 152" /></circle>
+              <circle r="4"><animateMotion dur="6.2s" repeatCount="indefinite" path="M506 152L310 310L160 478" begin="-2.2s" /></circle>
+              <circle r="4"><animateMotion dur="5.4s" repeatCount="indefinite" path="M160 478L310 310L489 460" begin="-1.1s" /></circle>
+            </g>
+          </svg>
+          <span class="topology-label label-a">performer 01</span>
+          <span class="topology-label label-b">performer 02</span>
+          <span class="topology-label label-c">router / shared state</span>
+          <span class="topology-label label-d">performer 04</span>
+          <span class="topology-label label-e">performer 05</span>
+          <div class="topology-readout"><span>packet</span><strong data-packet>0042</strong><small>shared / unstable / audible</small></div>
+        </div>
+      </div>
+
+      <div class="hero-footer reveal" data-reveal>
+        <a href="#about" class="hero-enter">enter network <span>↓</span></a>
+        <div class="hero-specs">
+          <span><b>01</b> distributed systems</span>
+          <span><b>02</b> real-time audio</span>
+          <span><b>03</b> collective form</span>
+        </div>
+      </div>
     </section>
 
     <section class="section about" id="about">
-      <div class="section-index">01 / about</div>
-      <div class="about-grid">
-        <div class="about-intro reveal" data-reveal="left"><h2>a laboratory<br />for new ideas</h2><p>NetSound Collective grew out of an experimental project initiated by <strong>Dmitrii Shchukin</strong> during his 2023–2024 assistantship in the composition department at the Robert Schumann Hochschule Düsseldorf. What began as a study-driven ensemble gradually expanded into a full platform for experimentation, collaboration and public presentation.</p></div>
-        <div class="about-block reveal" data-reveal="right"><p>As in an acoustic ensemble, each member of the laptop ensemble controls only one sound source. The performers are connected through a router, allowing signals and sound materials to be transmitted in real time. The result is a dynamic interdependent system in which every element reacts to the others.</p></div>
-        <div class="about-block reveal wide" data-reveal="left"><p>For us, the laptop ensemble is not only a technical setup. It is a philosophical approach to music, centred on shared process, improvisation and the continuous transformation of material. The work values searching over closure: unexpected sound, unstable form and discovery in real time.</p></div>
-        <aside class="about-note reveal" data-reveal="up"><span>signal path</span><strong>performer → interface → router → network → room → listener</strong><div class="note-patch"><span class="patch-box small">adc~</span><span class="patch-cord tiny"></span><span class="patch-box small active">route signal</span></div></aside>
+      <div class="section-label reveal" data-reveal><span>01</span><span>about</span></div>
+      <div class="about-layout">
+        <div class="section-heading reveal" data-reveal>
+          <p class="eyebrow">not a band. not a server. somewhere between.</p>
+          <h2>A laboratory<br />for shared form.</h2>
+        </div>
+
+        <div class="about-copy reveal" data-reveal>
+          <p class="lead">NetSound Collective grew out of an experimental project initiated by <strong>Dmitrii Shchukin</strong> during his 2023–2024 assistantship at the Robert Schumann Hochschule Düsseldorf.</p>
+          <p>What began as a study-driven laptop ensemble developed into a platform for collaboration, research-oriented performance and public presentation. Each performer controls an individual sound source while remaining connected to a shared network in real time.</p>
+          <p>The setup is deliberately interdependent. Signals move between people, machines and rooms. A decision made at one point can reshape the whole system elsewhere.</p>
+        </div>
+
+        <aside class="system-note reveal" data-reveal>
+          <span class="system-note-title">signal path</span>
+          <ol>
+            <li><b>01</b><span>performer</span></li>
+            <li><b>02</b><span>interface</span></li>
+            <li><b>03</b><span>router</span></li>
+            <li><b>04</b><span>network</span></li>
+            <li><b>05</b><span>room / listener</span></li>
+          </ol>
+          <p>Distance, latency and instability are treated as material, not hidden as errors.</p>
+        </aside>
       </div>
     </section>
 
     <section class="section practice" id="practice">
-      <div class="section-index">02 / practice</div>
-      <div class="practice-grid">
-        <article class="practice-card reveal" data-reveal="up"><figure class="practice-media"><img src="./assets/performance-01.webp" alt="NetSound Collective distributed performance" loading="lazy" decoding="async" /></figure><div class="practice-copy"><span class="card-number">01</span><h2>distributed<br />performance</h2><p>Works that treat distance, signal flow and temporal displacement as compositional material rather than technical obstacles.</p><div class="patch-mini" aria-hidden="true"><span class="patch-box small">send~ room</span><span class="patch-cord tiny"></span><span class="patch-box small">receive~ room</span></div></div></article>
-        <article class="practice-card reveal" data-reveal="up"><figure class="practice-media"><img src="./assets/performance-03.webp" alt="NetSound Collective live electronics setup" loading="lazy" decoding="async" /></figure><div class="practice-copy"><span class="card-number">02</span><h2>live<br />electronics</h2><p>Acoustic and digital sources in active dialogue: processing, response, routing, diffusion and performative control in one shared environment.</p><div class="patch-mini" aria-hidden="true"><span class="patch-box small active">poly~</span><span class="patch-cord tiny"></span><span class="patch-box small">live.gain~</span></div></div></article>
-        <article class="practice-card reveal" data-reveal="up"><figure class="practice-media"><img src="./assets/performance-02.webp" alt="NetSound Collective transmedia improvisation" loading="lazy" decoding="async" /></figure><div class="practice-copy"><span class="card-number">03</span><h2>transmedia<br />improvisation</h2><p>Sound, code, image and performative presence understood as one mutable field instead of separate media layers.</p><div class="patch-mini" aria-hidden="true"><span class="patch-box small">jit.world</span><span class="patch-cord tiny"></span><span class="patch-box small active">matrixctrl</span></div></div></article>
+      <div class="section-label reveal" data-reveal><span>02</span><span>practice</span></div>
+      <div class="practice-intro reveal" data-reveal>
+        <h2>Three modes.<br />One unstable instrument.</h2>
+        <p>The collective works with systems whose musical behaviour is produced by relations between participants rather than by a single central author.</p>
+      </div>
+
+      <div class="practice-list">
+        <article class="practice-item reveal" data-reveal>
+          <figure><img src="./assets/performance-01.webp" alt="NetSound Collective distributed performance" loading="lazy" decoding="async" /></figure>
+          <div class="practice-number">01</div>
+          <div class="practice-body"><h3>Distributed<br />performance</h3><p>Distance, routing and temporal displacement become compositional parameters. The network is part of the score.</p></div>
+          <div class="practice-code"><span>send~ room</span><i></i><span>receive~ room</span></div>
+        </article>
+
+        <article class="practice-item reveal" data-reveal>
+          <figure><img src="./assets/performance-03.webp" alt="NetSound Collective live electronics setup" loading="lazy" decoding="async" /></figure>
+          <div class="practice-number">02</div>
+          <div class="practice-body"><h3>Live<br />electronics</h3><p>Acoustic and digital sources respond to each other through processing, diffusion, routing and performative control.</p></div>
+          <div class="practice-code"><span>adc~</span><i></i><span>matrix~</span><i></i><span>dac~</span></div>
+        </article>
+
+        <article class="practice-item reveal" data-reveal>
+          <figure><img src="./assets/performance-02.webp" alt="NetSound Collective transmedia improvisation" loading="lazy" decoding="async" /></figure>
+          <div class="practice-number">03</div>
+          <div class="practice-body"><h3>Transmedia<br />improvisation</h3><p>Sound, code, image and performative presence are treated as one mutable field rather than separate media layers.</p></div>
+          <div class="practice-code"><span>signal</span><i></i><span>code</span><i></i><span>image</span></div>
+        </article>
       </div>
     </section>
 
     <section class="section traces" id="documentation">
-      <div class="section-index">03 / traces</div>
-      <div class="trace-layout"><div class="trace-copy reveal" data-reveal="left"><h2>patches,<br />rooms,<br />traces</h2><p>Selected fragments from rehearsals, performances and presentation contexts. Colour stays. The signals survived.</p></div><div class="trace-cards"><figure class="trace-card reveal" data-reveal="up"><img src="./assets/equipment-01.webp" alt="Laptop patch used in NetSound Collective projects" loading="lazy" decoding="async" /><figcaption><span>01</span>patch / signal routing</figcaption></figure><figure class="trace-card reveal" data-reveal="up"><img src="./assets/talk-01.webp" alt="Presentation during a NetSound Collective event" loading="lazy" decoding="async" /><figcaption><span>02</span>presentation / public context</figcaption></figure></div></div>
+      <div class="section-label reveal" data-reveal><span>03</span><span>traces</span></div>
+      <div class="traces-layout">
+        <div class="traces-heading reveal" data-reveal>
+          <h2>Patches.<br />Rooms.<br />Residue.</h2>
+          <p>Selected fragments from rehearsals, performances and presentation contexts.</p>
+        </div>
+        <figure class="trace trace-a reveal" data-reveal>
+          <img src="./assets/equipment-01.webp" alt="Laptop patch used in NetSound Collective projects" loading="lazy" decoding="async" />
+          <figcaption><span>01</span><span>patch / signal routing</span></figcaption>
+        </figure>
+        <figure class="trace trace-b reveal" data-reveal>
+          <img src="./assets/talk-01.webp" alt="Presentation during a NetSound Collective event" loading="lazy" decoding="async" />
+          <figcaption><span>02</span><span>presentation / public context</span></figcaption>
+        </figure>
+      </div>
     </section>
 
     <section class="section archive" id="archive">
-      <div class="section-index">04 / selected archive</div><div class="archive-heading reveal" data-reveal="left"><h2>events<br />& projects</h2></div>
-      <div class="archive-list">
-        <div class="archive-row reveal" data-reveal="up"><div class="archive-year">19.10.23</div><div class="archive-main"><h3>Palast-Rauschen</h3><p>Galerie Kunstpalast · Düsseldorf</p></div><div class="archive-meta">networked performance / live electronics</div><span class="archive-arrow">•</span></div>
-        <div class="archive-row reveal" data-reveal="up"><div class="archive-year">01.01.24</div><div class="archive-main"><h3>“MIXTURES”</h3><p>Current positions between art and music</p></div><div class="archive-meta">Galerie plan.d · Düsseldorf</div><span class="archive-arrow">•</span></div>
-        <a class="archive-row reveal" data-reveal="up" href="https://lukas-shotaro.de/werke/" target="_blank" rel="noreferrer"><div class="archive-year">25.05.24</div><div class="archive-main"><h3>++++ / Tag der neuen Musik</h3><p>collaboration with Ensemble GARAGE</p></div><div class="archive-meta">Robert Schumann Hochschule Düsseldorf · Eva Boesch · NetSound Collective</div><span class="archive-arrow">↗</span></a>
-        <a class="archive-row reveal" data-reveal="up" href="https://www.uni-paderborn.de/en/research/research-in-profile/digital-humanities/news/page-5" target="_blank" rel="noreferrer"><div class="archive-year">26.06.24</div><div class="archive-main"><h3>Network Music</h3><p>concert in intra-, inter- and metanet</p></div><div class="archive-meta">KreativInstitut.OWL · Detmold</div><span class="archive-arrow">↗</span></a>
-        <div class="archive-row reveal" data-reveal="up"><div class="archive-year">2024</div><div class="archive-main"><h3>Salon des Amateurs</h3><p>experimental concert and collaborative format</p></div><div class="archive-meta">Düsseldorf</div><span class="archive-arrow">•</span></div>
-        <a class="archive-row reveal" data-reveal="up" href="https://lukas-shotaro.de/engagements/" target="_blank" rel="noreferrer"><div class="archive-year">11.24</div><div class="archive-main"><h3>Collaborative Transmedial Improvisations</h3><p>NowNet Arts Conference · Western Hemisphere Network</p></div><div class="archive-meta">network performance / livestream / distributed interaction</div><span class="archive-arrow">↗</span></a>
-        <div class="archive-row reveal" data-reveal="up"><div class="archive-year">04.25</div><div class="archive-main"><h3>Art Artist</h3><p>collaborative live coding / electronic performance</p></div><div class="archive-meta">Hansaallee 190 · Düsseldorf</div><span class="archive-arrow">•</span></div>
+      <div class="section-label reveal" data-reveal><span>04</span><span>selected archive</span></div>
+      <div class="archive-head reveal" data-reveal>
+        <h2>Events &<br />projects</h2>
+        <p>Performances, collaborations and distributed experiments since 2023.</p>
       </div>
-      <div class="partners reveal" data-reveal="up" aria-label="Selected partners and contexts">
-        <a class="partner-logo garage" href="https://ensemblegarage.de/" target="_blank" rel="noreferrer"><img src="./assets/garage-logo.svg" alt="Ensemble Garage logo" loading="lazy" decoding="async" /></a>
-        <a class="partner-text" href="https://kreativ.institute/" target="_blank" rel="noreferrer"><span class="partner-kicker">partner</span><strong>KreativInstitut.OWL</strong><small>Detmold</small></a>
-        <a class="partner-text" href="https://www.rsh-duesseldorf.de/" target="_blank" rel="noreferrer"><span class="partner-kicker">origin</span><strong>Robert Schumann Hochschule</strong><small>Düsseldorf</small></a>
-        <a class="partner-text" href="https://nownetarts.org/" target="_blank" rel="noreferrer"><span class="partner-kicker">context</span><strong>NowNet Arts</strong><small>network performance</small></a>
+
+      <div class="archive-table">
+        <div class="archive-table-head" aria-hidden="true"><span>date</span><span>project / context</span><span>place / format</span><span></span></div>
+        <div class="archive-row reveal" data-reveal><time>19.10.23</time><div><h3>Palast-Rauschen</h3><p>Galerie Kunstpalast</p></div><span> Düsseldorf · networked performance / live electronics</span><i>•</i></div>
+        <div class="archive-row reveal" data-reveal><time>01.01.24</time><div><h3>“MIXTURES”</h3><p>Current positions between art and music</p></div><span>Galerie plan.d · Düsseldorf</span><i>•</i></div>
+        <a class="archive-row reveal" data-reveal href="https://lukas-shotaro.de/werke/" target="_blank" rel="noreferrer"><time>25.05.24</time><div><h3>++++ / Tag der neuen Musik</h3><p>collaboration with Ensemble GARAGE</p></div><span>Robert Schumann Hochschule Düsseldorf · Eva Boesch</span><i>↗</i></a>
+        <a class="archive-row reveal" data-reveal href="https://www.uni-paderborn.de/en/research/research-in-profile/digital-humanities/news/page-5" target="_blank" rel="noreferrer"><time>26.06.24</time><div><h3>Network Music</h3><p>concert in intra-, inter- and metanet</p></div><span>KreativInstitut.OWL · Detmold</span><i>↗</i></a>
+        <div class="archive-row reveal" data-reveal><time>2024</time><div><h3>Salon des Amateurs</h3><p>experimental concert and collaborative format</p></div><span>Düsseldorf</span><i>•</i></div>
+        <a class="archive-row reveal" data-reveal href="https://lukas-shotaro.de/engagements/" target="_blank" rel="noreferrer"><time>11.24</time><div><h3>Collaborative Transmedial Improvisations</h3><p>NowNet Arts Conference · Western Hemisphere Network</p></div><span>distributed interaction / livestream</span><i>↗</i></a>
+        <div class="archive-row reveal" data-reveal><time>04.25</time><div><h3>Art Artist</h3><p>collaborative live coding / electronic performance</p></div><span>Hansaallee 190 · Düsseldorf</span><i>•</i></div>
+      </div>
+
+      <div class="partners reveal" data-reveal aria-label="Selected partners and contexts">
+        <a class="partner partner-logo" href="https://ensemblegarage.de/" target="_blank" rel="noreferrer"><span>collaboration</span><img src="./assets/garage-logo.svg" alt="Ensemble Garage logo" loading="lazy" decoding="async" /></a>
+        <a class="partner" href="https://kreativ.institute/" target="_blank" rel="noreferrer"><span>partner</span><strong>KreativInstitut.OWL</strong><small>Detmold</small></a>
+        <a class="partner" href="https://www.rsh-duesseldorf.de/" target="_blank" rel="noreferrer"><span>origin</span><strong>Robert Schumann Hochschule</strong><small>Düsseldorf</small></a>
+        <a class="partner" href="https://nownetarts.org/" target="_blank" rel="noreferrer"><span>context</span><strong>NowNet Arts</strong><small>network performance</small></a>
       </div>
     </section>
 
     <section class="section artists" id="artists">
-      <div class="section-index">05 / artists</div>
-      <div class="artists-heading reveal" data-reveal="left"><h2>people<br />in the<br />network</h2><p>Five artistic positions across composition, sound, code, image and networked performance practice.</p></div>
-      <div class="artist-list reveal" data-reveal="up">
-        <article class="artist-bio"><span class="artist-no">01</span><div><h3>Dennis Scheiba</h3><p>Audio-visual artist focused on critical reflection on technology, algorithms and their political implications; co-developer of browser-based real-time streaming and live-coding systems such as Gencaster.</p><a href="https://dennis-scheiba.com/" target="_blank" rel="noreferrer">website ↗</a></div></article>
-        <article class="artist-bio"><span class="artist-no">02</span><div><h3>Sascha Etezazi</h3><p>Composer, Tonmeister and sound director, and artistic researcher in composition & sound design at KreativInstitut.OWL, working with spatial audio, virtual environments and networked musical interaction.</p><a href="https://kreativ.institute/de/ueber-kio/team/sascha-etezazi" target="_blank" rel="noreferrer">profile ↗</a></div></article>
-        <article class="artist-bio"><span class="artist-no">03</span><div><h3>Lukas Döhler</h3><p>Composer and violinist from Düsseldorf whose work connects composition, performance practice, electronics and the mediation of contemporary music.</p><a href="https://lukas-shotaro.de/" target="_blank" rel="noreferrer">website ↗</a></div></article>
-        <article class="artist-bio"><span class="artist-no">04</span><div><h3>Dmitrii Shchukin</h3><p>Composer and media artist; initiator of the project from which NetSound Collective emerged during his tutor assistantship in the composition department at the Robert Schumann Hochschule Düsseldorf.</p><a href="mailto:dmitrii.schtschukin@gmail.com">email ↗</a></div></article>
-        <article class="artist-bio"><span class="artist-no">05</span><div><h3>Raphael Zoeschinger</h3><p>Performer and artistic collaborator in NetSound Collective’s networked and transmedial work, contributing to the ensemble’s shared performance ecology.</p></div></article>
+      <div class="section-label reveal" data-reveal><span>05</span><span>artists</span></div>
+      <div class="artists-intro reveal" data-reveal>
+        <h2>People in<br />the network</h2>
+        <p>A changing constellation of artistic positions across composition, sound, code, image and networked performance.</p>
+      </div>
+
+      <div class="artist-list">
+        <article class="artist-row reveal" data-reveal><span class="artist-no">01</span><div class="artist-name"><h3>Dennis Scheiba</h3><span>audio-visual / code</span></div><p>Audio-visual artist focused on critical reflection on technology, algorithms and their political implications; co-developer of browser-based real-time streaming and live-coding systems such as Gencaster.</p><a href="https://dennis-scheiba.com/" target="_blank" rel="noreferrer" aria-label="Dennis Scheiba website">↗</a></article>
+        <article class="artist-row reveal" data-reveal><span class="artist-no">02</span><div class="artist-name"><h3>Sascha Etezazi</h3><span>composition / sound direction</span></div><p>Composer, Tonmeister and sound director, and artistic researcher at KreativInstitut.OWL, working with spatial audio, virtual environments and networked musical interaction.</p><a href="https://kreativ.institute/de/ueber-kio/team/sascha-etezazi" target="_blank" rel="noreferrer" aria-label="Sascha Etezazi profile">↗</a></article>
+        <article class="artist-row reveal" data-reveal><span class="artist-no">03</span><div class="artist-name"><h3>Lukas Döhler</h3><span>composition / violin</span></div><p>Composer and violinist from Düsseldorf whose work connects composition, performance practice, electronics and the mediation of contemporary music.</p><a href="https://lukas-shotaro.de/" target="_blank" rel="noreferrer" aria-label="Lukas Döhler website">↗</a></article>
+        <article class="artist-row reveal" data-reveal><span class="artist-no">04</span><div class="artist-name"><h3>Dmitrii Shchukin</h3><span>composition / media / systems</span></div><p>Composer and media artist; initiator of the project from which NetSound Collective emerged during his assistantship at the Robert Schumann Hochschule Düsseldorf.</p><a href="mailto:dmitrii.schtschukin@gmail.com" aria-label="Email Dmitrii Shchukin">↗</a></article>
+        <article class="artist-row reveal" data-reveal><span class="artist-no">05</span><div class="artist-name"><h3>Raphael Zöschinger</h3><span>performance / collaboration</span></div><p>Performer and artistic collaborator in NetSound Collective’s networked and transmedial work, contributing to the ensemble’s shared performance ecology.</p><span class="artist-null">•</span></article>
       </div>
     </section>
 
-    <section class="section call-section" id="call">
-      <div class="section-index">06 / Laptop+ · Call for Scores</div><div class="call-layout"><div class="call-heading reveal" data-reveal="left"><span class="open-pill"><i></i>open / ongoing</span><h2>LAPTOP+</h2><strong>Call for Scores</strong></div><div class="call-copy reveal" data-reveal="right"><p>The ensemble is open to collaborations with composers, performers, media artists and interdisciplinary projects. We are interested in formats that explore new forms of sonic interaction, improvisation and performative practice.</p><p>Our Call for Scores invites composers and sound artists who want to test the boundaries between composition, improvisation and live processing, and to make specific use of the possibilities of a laptop ensemble.</p><a class="call-action" href="mailto:dmitrii.schtschukin@gmail.com?subject=NetSound%20Collective%20-%20Laptop%2B%20Call%20for%20Scores">propose a project ↗</a></div></div>
+    <section class="call-section" id="call">
+      <div class="call-shell">
+        <div class="section-label reveal" data-reveal><span>06</span><span>Laptop+ · Call for Scores</span></div>
+        <div class="call-layout">
+          <div class="call-title reveal" data-reveal>
+            <span class="open-pill"><i></i> open / ongoing</span>
+            <h2>LAPTOP+</h2>
+          </div>
+          <div class="call-copy reveal" data-reveal>
+            <h3>Call for Scores</h3>
+            <p>The ensemble is open to collaborations with composers, performers, media artists and interdisciplinary projects. We are interested in work that treats interaction, improvisation and live processing as structural parts of the piece.</p>
+            <p>We especially welcome proposals that make specific use of the possibilities and limitations of a laptop ensemble rather than treating electronics as invisible accompaniment.</p>
+            <a href="mailto:dmitrii.schtschukin@gmail.com?subject=NetSound%20Collective%20-%20Laptop%2B%20Call%20for%20Scores">propose a project <span>↗</span></a>
+          </div>
+        </div>
+      </div>
     </section>
 
-    <section class="section manifesto"><div class="manifesto-grid" aria-hidden="true"></div><div class="manifesto-text reveal" data-reveal="zoom"><p>Distance is not silence.</p><p>Latency is not failure.</p><p>A network can listen.</p></div><div class="site-legal reveal" data-reveal="fade"><p>Copyright © 2023 by NetSound Collective</p><p>All materials on this website (e.g. texts, photographs, videos and audio) are the property of the ensemble. Use without prior permission from the ensemble is prohibited.</p></div></section>
+    <section class="manifesto section" aria-label="Manifesto">
+      <div class="manifesto-grid" aria-hidden="true"></div>
+      <div class="manifesto-copy reveal" data-reveal>
+        <p>Distance is not silence.</p>
+        <p>Latency is not failure.</p>
+        <p>A network can listen.</p>
+      </div>
+      <div class="manifesto-meta reveal" data-reveal><span>collective form / unstable media / shared listening</span><span>↓</span></div>
+    </section>
 
-    <section class="section contact-section" id="contact"><div class="section-index">07 / contact</div><div class="contact-grid"><div class="contact-title reveal" data-reveal="left"><h2>contact &<br />collaboration</h2></div><div class="contact-details reveal" data-reveal="up"><span>contact / NetSound Collective</span><h3>Dmitrii Shchukin</h3><a href="mailto:dmitrii.schtschukin@gmail.com">dmitrii.schtschukin@gmail.com ↗</a></div><div class="contact-place reveal" data-reveal="right"><p>since 2023<br />based in Düsseldorf</p></div></div></section>
+    <section class="section contact" id="contact">
+      <div class="section-label reveal" data-reveal><span>07</span><span>contact</span></div>
+      <div class="contact-layout">
+        <div class="contact-title reveal" data-reveal><h2>Start a<br />connection.</h2></div>
+        <div class="contact-main reveal" data-reveal><span>contact / NetSound Collective</span><h3>Dmitrii Shchukin</h3><a href="mailto:dmitrii.schtschukin@gmail.com">dmitrii.schtschukin@gmail.com <b>↗</b></a></div>
+        <div class="contact-aside reveal" data-reveal><span>based</span><p>Düsseldorf<br />since 2023</p><span>working mode</span><p>local / distributed / online</p></div>
+      </div>
+    </section>
   </main>
 
-  <footer class="footer"><div class="footer-mark">NETSOUND<br />COLLECTIVE</div><div class="footer-copy"><p>networked music · live electronics · transdigital practice</p></div><div class="footer-links"><a href="mailto:dmitrii.schtschukin@gmail.com">mail ↗</a><a href="https://github.com/dschkn/netsoundcollective" target="_blank" rel="noreferrer">github ↗</a><a href="#top">top ↑</a></div></footer>
+  <footer class="footer">
+    <div class="footer-brand"><span class="wordmark-mark">N/S</span><strong>NetSound<br />Collective</strong></div>
+    <p>networked music · live electronics · transdigital practice</p>
+    <div class="footer-links"><a href="mailto:dmitrii.schtschukin@gmail.com">mail ↗</a><a href="https://github.com/dschkn/netsoundcollective" target="_blank" rel="noreferrer">github ↗</a><a href="#top">top ↑</a></div>
+    <small>© <span data-year>2026</span> NetSound Collective</small>
+  </footer>
+
   <script src="./script.js"></script>
 </body>
 </html>
